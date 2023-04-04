@@ -17,13 +17,13 @@ provider "aws" {
     region  = "us-east-1"
 }
 
-module "oicd" {
-    source  = "../../modules/oicd"
+module "oidc" {
+    source  = "../../modules/oidc"
 }
 
 module "iam-role" {
     source  = "../../modules/iam-role"
     depends_on = [
-      module.oicd
+      module.oidc
     ]
 }
