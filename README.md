@@ -2,6 +2,7 @@
 Setting up the initial requirements for CICD using Terraform with AWS and GitHub Actions.
 
 General Overview:
+
 Using CI/CD assumes you're working in a rather mature organization with multiple environments (Dev, Prod, etc).  Point of WildWestTech is simply to explore and test different tools and perform some troubleshooting along the way.  Keeping that in mind, I plan on running through some of the initial setup and demos for CI/CD, but I won't put everything in the pipeline.  Just enough to show a working proof of concept.
 
 Round 1 Thoughts.  We'll have a few major components:
