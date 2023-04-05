@@ -38,10 +38,20 @@ resource "aws_iam_role" "cicd-role" {
                 "AWS": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/aws-reserved/sso.amazonaws.com/${local.AWSReservedSSO_AdministratorAccess}"
             },
             "Action": "sts:AssumeRole"
-        }
-    ]
-}
-EOF
+
+        },
+        {
+			"Sid": "3",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/cicd-role"
+			},
+			"Action": "sts:AssumeRole"
+		}
+    ]    
+    }    
+    EOF
+
 
   inline_policy {
     name = "iam"
@@ -60,13 +70,3 @@ EOF
     EOF
   }
 }
-
-#===========================================================
-# {
-#     "Sid": "3",
-#     "Effect": "Allow",
-#     "Principal": {
-#         "AWS": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/cicd-role"
-#     },
-#     "Action": "sts:AssumeRole"
-# }
